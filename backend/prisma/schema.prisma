@@ -15,7 +15,7 @@ datasource db {
 }
 
 model User{
-  id String @id @default(uuid())
+  id Int @id @default(autoincrement())
   name String
   email String @unique
   password String
@@ -24,7 +24,7 @@ model User{
   feedbacks Feedback[]
 }
 model Poll{
-  id String @id @default(uuid())
+  id Int @id @default(autoincrement())
   title String
   description String
   options PollOption[]
@@ -32,25 +32,25 @@ model Poll{
   isActive Boolean @default(true)
 }
 model PollOption{
-  id String @id @default(uuid())
+  id Int @id @default(autoincrement())
   text String
   poll Poll @relation(fields: [pollId],references: [id])
-  pollId String
+  pollId Int
   votes Vote[]
 }
 model Vote{
-  id String @id @default(uuid())
+  id Int @id @default(autoincrement())
   user User @relation(fields: [userId],references: [id])
-  userId String
+  userId Int
   pollOption PollOption @relation(fields: [pollOptionId],references: [id])
-  pollOptionId String
+  pollOptionId Int
   votedAt DateTime @default(now())
 }
 model Feedback {
-  id String @id @default(uuid())
+  id Int @id @default(autoincrement())
   message String
   user User? @relation(fields: [userId],references: [id])
-  userId String?
+  userId Int?
   createdAt DateTime @default(now())
 }
 

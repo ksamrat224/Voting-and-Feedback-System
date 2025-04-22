@@ -1357,12 +1357,22 @@ export namespace Prisma {
 
   export type AggregateUser = {
     _count: UserCountAggregateOutputType | null
+    _avg: UserAvgAggregateOutputType | null
+    _sum: UserSumAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
   }
 
+  export type UserAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type UserSumAggregateOutputType = {
+    id: number | null
+  }
+
   export type UserMinAggregateOutputType = {
-    id: string | null
+    id: number | null
     name: string | null
     email: string | null
     password: string | null
@@ -1370,7 +1380,7 @@ export namespace Prisma {
   }
 
   export type UserMaxAggregateOutputType = {
-    id: string | null
+    id: number | null
     name: string | null
     email: string | null
     password: string | null
@@ -1386,6 +1396,14 @@ export namespace Prisma {
     _all: number
   }
 
+
+  export type UserAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type UserSumAggregateInputType = {
+    id?: true
+  }
 
   export type UserMinAggregateInputType = {
     id?: true
@@ -1450,6 +1468,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: UserAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: UserSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: UserMinAggregateInputType
@@ -1480,17 +1510,21 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: UserCountAggregateInputType | true
+    _avg?: UserAvgAggregateInputType
+    _sum?: UserSumAggregateInputType
     _min?: UserMinAggregateInputType
     _max?: UserMaxAggregateInputType
   }
 
   export type UserGroupByOutputType = {
-    id: string
+    id: number
     name: string
     email: string
     password: string
     role: $Enums.Role
     _count: UserCountAggregateOutputType | null
+    _avg: UserAvgAggregateOutputType | null
+    _sum: UserSumAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
   }
@@ -1560,7 +1594,7 @@ export namespace Prisma {
       feedbacks: Prisma.$FeedbackPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: string
+      id: number
       name: string
       email: string
       password: string
@@ -1990,7 +2024,7 @@ export namespace Prisma {
    * Fields of the User model
    */
   interface UserFieldRefs {
-    readonly id: FieldRef<"User", 'String'>
+    readonly id: FieldRef<"User", 'Int'>
     readonly name: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
@@ -2455,12 +2489,22 @@ export namespace Prisma {
 
   export type AggregatePoll = {
     _count: PollCountAggregateOutputType | null
+    _avg: PollAvgAggregateOutputType | null
+    _sum: PollSumAggregateOutputType | null
     _min: PollMinAggregateOutputType | null
     _max: PollMaxAggregateOutputType | null
   }
 
+  export type PollAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type PollSumAggregateOutputType = {
+    id: number | null
+  }
+
   export type PollMinAggregateOutputType = {
-    id: string | null
+    id: number | null
     title: string | null
     description: string | null
     createdAt: Date | null
@@ -2468,7 +2512,7 @@ export namespace Prisma {
   }
 
   export type PollMaxAggregateOutputType = {
-    id: string | null
+    id: number | null
     title: string | null
     description: string | null
     createdAt: Date | null
@@ -2484,6 +2528,14 @@ export namespace Prisma {
     _all: number
   }
 
+
+  export type PollAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type PollSumAggregateInputType = {
+    id?: true
+  }
 
   export type PollMinAggregateInputType = {
     id?: true
@@ -2548,6 +2600,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: PollAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PollSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: PollMinAggregateInputType
@@ -2578,17 +2642,21 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: PollCountAggregateInputType | true
+    _avg?: PollAvgAggregateInputType
+    _sum?: PollSumAggregateInputType
     _min?: PollMinAggregateInputType
     _max?: PollMaxAggregateInputType
   }
 
   export type PollGroupByOutputType = {
-    id: string
+    id: number
     title: string
     description: string
     createdAt: Date
     isActive: boolean
     _count: PollCountAggregateOutputType | null
+    _avg: PollAvgAggregateOutputType | null
+    _sum: PollSumAggregateOutputType | null
     _min: PollMinAggregateOutputType | null
     _max: PollMaxAggregateOutputType | null
   }
@@ -2655,7 +2723,7 @@ export namespace Prisma {
       options: Prisma.$PollOptionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: string
+      id: number
       title: string
       description: string
       createdAt: Date
@@ -3084,7 +3152,7 @@ export namespace Prisma {
    * Fields of the Poll model
    */
   interface PollFieldRefs {
-    readonly id: FieldRef<"Poll", 'String'>
+    readonly id: FieldRef<"Poll", 'Int'>
     readonly title: FieldRef<"Poll", 'String'>
     readonly description: FieldRef<"Poll", 'String'>
     readonly createdAt: FieldRef<"Poll", 'DateTime'>
@@ -3525,20 +3593,32 @@ export namespace Prisma {
 
   export type AggregatePollOption = {
     _count: PollOptionCountAggregateOutputType | null
+    _avg: PollOptionAvgAggregateOutputType | null
+    _sum: PollOptionSumAggregateOutputType | null
     _min: PollOptionMinAggregateOutputType | null
     _max: PollOptionMaxAggregateOutputType | null
   }
 
+  export type PollOptionAvgAggregateOutputType = {
+    id: number | null
+    pollId: number | null
+  }
+
+  export type PollOptionSumAggregateOutputType = {
+    id: number | null
+    pollId: number | null
+  }
+
   export type PollOptionMinAggregateOutputType = {
-    id: string | null
+    id: number | null
     text: string | null
-    pollId: string | null
+    pollId: number | null
   }
 
   export type PollOptionMaxAggregateOutputType = {
-    id: string | null
+    id: number | null
     text: string | null
-    pollId: string | null
+    pollId: number | null
   }
 
   export type PollOptionCountAggregateOutputType = {
@@ -3548,6 +3628,16 @@ export namespace Prisma {
     _all: number
   }
 
+
+  export type PollOptionAvgAggregateInputType = {
+    id?: true
+    pollId?: true
+  }
+
+  export type PollOptionSumAggregateInputType = {
+    id?: true
+    pollId?: true
+  }
 
   export type PollOptionMinAggregateInputType = {
     id?: true
@@ -3606,6 +3696,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: PollOptionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PollOptionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: PollOptionMinAggregateInputType
@@ -3636,15 +3738,19 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: PollOptionCountAggregateInputType | true
+    _avg?: PollOptionAvgAggregateInputType
+    _sum?: PollOptionSumAggregateInputType
     _min?: PollOptionMinAggregateInputType
     _max?: PollOptionMaxAggregateInputType
   }
 
   export type PollOptionGroupByOutputType = {
-    id: string
+    id: number
     text: string
-    pollId: string
+    pollId: number
     _count: PollOptionCountAggregateOutputType | null
+    _avg: PollOptionAvgAggregateOutputType | null
+    _sum: PollOptionSumAggregateOutputType | null
     _min: PollOptionMinAggregateOutputType | null
     _max: PollOptionMaxAggregateOutputType | null
   }
@@ -3712,9 +3818,9 @@ export namespace Prisma {
       votes: Prisma.$VotePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: string
+      id: number
       text: string
-      pollId: string
+      pollId: number
     }, ExtArgs["result"]["pollOption"]>
     composites: {}
   }
@@ -4140,9 +4246,9 @@ export namespace Prisma {
    * Fields of the PollOption model
    */
   interface PollOptionFieldRefs {
-    readonly id: FieldRef<"PollOption", 'String'>
+    readonly id: FieldRef<"PollOption", 'Int'>
     readonly text: FieldRef<"PollOption", 'String'>
-    readonly pollId: FieldRef<"PollOption", 'String'>
+    readonly pollId: FieldRef<"PollOption", 'Int'>
   }
     
 
@@ -4587,21 +4693,35 @@ export namespace Prisma {
 
   export type AggregateVote = {
     _count: VoteCountAggregateOutputType | null
+    _avg: VoteAvgAggregateOutputType | null
+    _sum: VoteSumAggregateOutputType | null
     _min: VoteMinAggregateOutputType | null
     _max: VoteMaxAggregateOutputType | null
   }
 
+  export type VoteAvgAggregateOutputType = {
+    id: number | null
+    userId: number | null
+    pollOptionId: number | null
+  }
+
+  export type VoteSumAggregateOutputType = {
+    id: number | null
+    userId: number | null
+    pollOptionId: number | null
+  }
+
   export type VoteMinAggregateOutputType = {
-    id: string | null
-    userId: string | null
-    pollOptionId: string | null
+    id: number | null
+    userId: number | null
+    pollOptionId: number | null
     votedAt: Date | null
   }
 
   export type VoteMaxAggregateOutputType = {
-    id: string | null
-    userId: string | null
-    pollOptionId: string | null
+    id: number | null
+    userId: number | null
+    pollOptionId: number | null
     votedAt: Date | null
   }
 
@@ -4613,6 +4733,18 @@ export namespace Prisma {
     _all: number
   }
 
+
+  export type VoteAvgAggregateInputType = {
+    id?: true
+    userId?: true
+    pollOptionId?: true
+  }
+
+  export type VoteSumAggregateInputType = {
+    id?: true
+    userId?: true
+    pollOptionId?: true
+  }
 
   export type VoteMinAggregateInputType = {
     id?: true
@@ -4674,6 +4806,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: VoteAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: VoteSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: VoteMinAggregateInputType
@@ -4704,16 +4848,20 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: VoteCountAggregateInputType | true
+    _avg?: VoteAvgAggregateInputType
+    _sum?: VoteSumAggregateInputType
     _min?: VoteMinAggregateInputType
     _max?: VoteMaxAggregateInputType
   }
 
   export type VoteGroupByOutputType = {
-    id: string
-    userId: string
-    pollOptionId: string
+    id: number
+    userId: number
+    pollOptionId: number
     votedAt: Date
     _count: VoteCountAggregateOutputType | null
+    _avg: VoteAvgAggregateOutputType | null
+    _sum: VoteSumAggregateOutputType | null
     _min: VoteMinAggregateOutputType | null
     _max: VoteMaxAggregateOutputType | null
   }
@@ -4787,9 +4935,9 @@ export namespace Prisma {
       pollOption: Prisma.$PollOptionPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: string
-      userId: string
-      pollOptionId: string
+      id: number
+      userId: number
+      pollOptionId: number
       votedAt: Date
     }, ExtArgs["result"]["vote"]>
     composites: {}
@@ -5216,9 +5364,9 @@ export namespace Prisma {
    * Fields of the Vote model
    */
   interface VoteFieldRefs {
-    readonly id: FieldRef<"Vote", 'String'>
-    readonly userId: FieldRef<"Vote", 'String'>
-    readonly pollOptionId: FieldRef<"Vote", 'String'>
+    readonly id: FieldRef<"Vote", 'Int'>
+    readonly userId: FieldRef<"Vote", 'Int'>
+    readonly pollOptionId: FieldRef<"Vote", 'Int'>
     readonly votedAt: FieldRef<"Vote", 'DateTime'>
   }
     
@@ -5640,21 +5788,33 @@ export namespace Prisma {
 
   export type AggregateFeedback = {
     _count: FeedbackCountAggregateOutputType | null
+    _avg: FeedbackAvgAggregateOutputType | null
+    _sum: FeedbackSumAggregateOutputType | null
     _min: FeedbackMinAggregateOutputType | null
     _max: FeedbackMaxAggregateOutputType | null
   }
 
+  export type FeedbackAvgAggregateOutputType = {
+    id: number | null
+    userId: number | null
+  }
+
+  export type FeedbackSumAggregateOutputType = {
+    id: number | null
+    userId: number | null
+  }
+
   export type FeedbackMinAggregateOutputType = {
-    id: string | null
+    id: number | null
     message: string | null
-    userId: string | null
+    userId: number | null
     createdAt: Date | null
   }
 
   export type FeedbackMaxAggregateOutputType = {
-    id: string | null
+    id: number | null
     message: string | null
-    userId: string | null
+    userId: number | null
     createdAt: Date | null
   }
 
@@ -5666,6 +5826,16 @@ export namespace Prisma {
     _all: number
   }
 
+
+  export type FeedbackAvgAggregateInputType = {
+    id?: true
+    userId?: true
+  }
+
+  export type FeedbackSumAggregateInputType = {
+    id?: true
+    userId?: true
+  }
 
   export type FeedbackMinAggregateInputType = {
     id?: true
@@ -5727,6 +5897,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: FeedbackAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FeedbackSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: FeedbackMinAggregateInputType
@@ -5757,16 +5939,20 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: FeedbackCountAggregateInputType | true
+    _avg?: FeedbackAvgAggregateInputType
+    _sum?: FeedbackSumAggregateInputType
     _min?: FeedbackMinAggregateInputType
     _max?: FeedbackMaxAggregateInputType
   }
 
   export type FeedbackGroupByOutputType = {
-    id: string
+    id: number
     message: string
-    userId: string | null
+    userId: number | null
     createdAt: Date
     _count: FeedbackCountAggregateOutputType | null
+    _avg: FeedbackAvgAggregateOutputType | null
+    _sum: FeedbackSumAggregateOutputType | null
     _min: FeedbackMinAggregateOutputType | null
     _max: FeedbackMaxAggregateOutputType | null
   }
@@ -5833,9 +6019,9 @@ export namespace Prisma {
       user: Prisma.$UserPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: string
+      id: number
       message: string
-      userId: string | null
+      userId: number | null
       createdAt: Date
     }, ExtArgs["result"]["feedback"]>
     composites: {}
@@ -6261,9 +6447,9 @@ export namespace Prisma {
    * Fields of the Feedback model
    */
   interface FeedbackFieldRefs {
-    readonly id: FieldRef<"Feedback", 'String'>
+    readonly id: FieldRef<"Feedback", 'Int'>
     readonly message: FieldRef<"Feedback", 'String'>
-    readonly userId: FieldRef<"Feedback", 'String'>
+    readonly userId: FieldRef<"Feedback", 'Int'>
     readonly createdAt: FieldRef<"Feedback", 'DateTime'>
   }
     
@@ -6793,6 +6979,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Int'
+   */
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int[]'
+   */
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
    * Reference to a field of type 'String'
    */
   export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
@@ -6842,16 +7042,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Int'
+   * Reference to a field of type 'Float'
    */
-  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
     
 
 
   /**
-   * Reference to a field of type 'Int[]'
+   * Reference to a field of type 'Float[]'
    */
-  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
   /**
    * Deep Input Types
@@ -6862,7 +7062,7 @@ export namespace Prisma {
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
-    id?: StringFilter<"User"> | string
+    id?: IntFilter<"User"> | number
     name?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
@@ -6882,7 +7082,7 @@ export namespace Prisma {
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
+    id?: number
     email?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
@@ -6901,15 +7101,17 @@ export namespace Prisma {
     password?: SortOrder
     role?: SortOrder
     _count?: UserCountOrderByAggregateInput
+    _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
+    _sum?: UserSumOrderByAggregateInput
   }
 
   export type UserScalarWhereWithAggregatesInput = {
     AND?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
     OR?: UserScalarWhereWithAggregatesInput[]
     NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"User"> | string
+    id?: IntWithAggregatesFilter<"User"> | number
     name?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
@@ -6920,7 +7122,7 @@ export namespace Prisma {
     AND?: PollWhereInput | PollWhereInput[]
     OR?: PollWhereInput[]
     NOT?: PollWhereInput | PollWhereInput[]
-    id?: StringFilter<"Poll"> | string
+    id?: IntFilter<"Poll"> | number
     title?: StringFilter<"Poll"> | string
     description?: StringFilter<"Poll"> | string
     createdAt?: DateTimeFilter<"Poll"> | Date | string
@@ -6938,7 +7140,7 @@ export namespace Prisma {
   }
 
   export type PollWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
+    id?: number
     AND?: PollWhereInput | PollWhereInput[]
     OR?: PollWhereInput[]
     NOT?: PollWhereInput | PollWhereInput[]
@@ -6956,15 +7158,17 @@ export namespace Prisma {
     createdAt?: SortOrder
     isActive?: SortOrder
     _count?: PollCountOrderByAggregateInput
+    _avg?: PollAvgOrderByAggregateInput
     _max?: PollMaxOrderByAggregateInput
     _min?: PollMinOrderByAggregateInput
+    _sum?: PollSumOrderByAggregateInput
   }
 
   export type PollScalarWhereWithAggregatesInput = {
     AND?: PollScalarWhereWithAggregatesInput | PollScalarWhereWithAggregatesInput[]
     OR?: PollScalarWhereWithAggregatesInput[]
     NOT?: PollScalarWhereWithAggregatesInput | PollScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Poll"> | string
+    id?: IntWithAggregatesFilter<"Poll"> | number
     title?: StringWithAggregatesFilter<"Poll"> | string
     description?: StringWithAggregatesFilter<"Poll"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Poll"> | Date | string
@@ -6975,9 +7179,9 @@ export namespace Prisma {
     AND?: PollOptionWhereInput | PollOptionWhereInput[]
     OR?: PollOptionWhereInput[]
     NOT?: PollOptionWhereInput | PollOptionWhereInput[]
-    id?: StringFilter<"PollOption"> | string
+    id?: IntFilter<"PollOption"> | number
     text?: StringFilter<"PollOption"> | string
-    pollId?: StringFilter<"PollOption"> | string
+    pollId?: IntFilter<"PollOption"> | number
     poll?: XOR<PollScalarRelationFilter, PollWhereInput>
     votes?: VoteListRelationFilter
   }
@@ -6991,12 +7195,12 @@ export namespace Prisma {
   }
 
   export type PollOptionWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
+    id?: number
     AND?: PollOptionWhereInput | PollOptionWhereInput[]
     OR?: PollOptionWhereInput[]
     NOT?: PollOptionWhereInput | PollOptionWhereInput[]
     text?: StringFilter<"PollOption"> | string
-    pollId?: StringFilter<"PollOption"> | string
+    pollId?: IntFilter<"PollOption"> | number
     poll?: XOR<PollScalarRelationFilter, PollWhereInput>
     votes?: VoteListRelationFilter
   }, "id">
@@ -7006,26 +7210,28 @@ export namespace Prisma {
     text?: SortOrder
     pollId?: SortOrder
     _count?: PollOptionCountOrderByAggregateInput
+    _avg?: PollOptionAvgOrderByAggregateInput
     _max?: PollOptionMaxOrderByAggregateInput
     _min?: PollOptionMinOrderByAggregateInput
+    _sum?: PollOptionSumOrderByAggregateInput
   }
 
   export type PollOptionScalarWhereWithAggregatesInput = {
     AND?: PollOptionScalarWhereWithAggregatesInput | PollOptionScalarWhereWithAggregatesInput[]
     OR?: PollOptionScalarWhereWithAggregatesInput[]
     NOT?: PollOptionScalarWhereWithAggregatesInput | PollOptionScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"PollOption"> | string
+    id?: IntWithAggregatesFilter<"PollOption"> | number
     text?: StringWithAggregatesFilter<"PollOption"> | string
-    pollId?: StringWithAggregatesFilter<"PollOption"> | string
+    pollId?: IntWithAggregatesFilter<"PollOption"> | number
   }
 
   export type VoteWhereInput = {
     AND?: VoteWhereInput | VoteWhereInput[]
     OR?: VoteWhereInput[]
     NOT?: VoteWhereInput | VoteWhereInput[]
-    id?: StringFilter<"Vote"> | string
-    userId?: StringFilter<"Vote"> | string
-    pollOptionId?: StringFilter<"Vote"> | string
+    id?: IntFilter<"Vote"> | number
+    userId?: IntFilter<"Vote"> | number
+    pollOptionId?: IntFilter<"Vote"> | number
     votedAt?: DateTimeFilter<"Vote"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     pollOption?: XOR<PollOptionScalarRelationFilter, PollOptionWhereInput>
@@ -7041,12 +7247,12 @@ export namespace Prisma {
   }
 
   export type VoteWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
+    id?: number
     AND?: VoteWhereInput | VoteWhereInput[]
     OR?: VoteWhereInput[]
     NOT?: VoteWhereInput | VoteWhereInput[]
-    userId?: StringFilter<"Vote"> | string
-    pollOptionId?: StringFilter<"Vote"> | string
+    userId?: IntFilter<"Vote"> | number
+    pollOptionId?: IntFilter<"Vote"> | number
     votedAt?: DateTimeFilter<"Vote"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     pollOption?: XOR<PollOptionScalarRelationFilter, PollOptionWhereInput>
@@ -7058,17 +7264,19 @@ export namespace Prisma {
     pollOptionId?: SortOrder
     votedAt?: SortOrder
     _count?: VoteCountOrderByAggregateInput
+    _avg?: VoteAvgOrderByAggregateInput
     _max?: VoteMaxOrderByAggregateInput
     _min?: VoteMinOrderByAggregateInput
+    _sum?: VoteSumOrderByAggregateInput
   }
 
   export type VoteScalarWhereWithAggregatesInput = {
     AND?: VoteScalarWhereWithAggregatesInput | VoteScalarWhereWithAggregatesInput[]
     OR?: VoteScalarWhereWithAggregatesInput[]
     NOT?: VoteScalarWhereWithAggregatesInput | VoteScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Vote"> | string
-    userId?: StringWithAggregatesFilter<"Vote"> | string
-    pollOptionId?: StringWithAggregatesFilter<"Vote"> | string
+    id?: IntWithAggregatesFilter<"Vote"> | number
+    userId?: IntWithAggregatesFilter<"Vote"> | number
+    pollOptionId?: IntWithAggregatesFilter<"Vote"> | number
     votedAt?: DateTimeWithAggregatesFilter<"Vote"> | Date | string
   }
 
@@ -7076,9 +7284,9 @@ export namespace Prisma {
     AND?: FeedbackWhereInput | FeedbackWhereInput[]
     OR?: FeedbackWhereInput[]
     NOT?: FeedbackWhereInput | FeedbackWhereInput[]
-    id?: StringFilter<"Feedback"> | string
+    id?: IntFilter<"Feedback"> | number
     message?: StringFilter<"Feedback"> | string
-    userId?: StringNullableFilter<"Feedback"> | string | null
+    userId?: IntNullableFilter<"Feedback"> | number | null
     createdAt?: DateTimeFilter<"Feedback"> | Date | string
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }
@@ -7092,12 +7300,12 @@ export namespace Prisma {
   }
 
   export type FeedbackWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
+    id?: number
     AND?: FeedbackWhereInput | FeedbackWhereInput[]
     OR?: FeedbackWhereInput[]
     NOT?: FeedbackWhereInput | FeedbackWhereInput[]
     message?: StringFilter<"Feedback"> | string
-    userId?: StringNullableFilter<"Feedback"> | string | null
+    userId?: IntNullableFilter<"Feedback"> | number | null
     createdAt?: DateTimeFilter<"Feedback"> | Date | string
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }, "id">
@@ -7108,22 +7316,23 @@ export namespace Prisma {
     userId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     _count?: FeedbackCountOrderByAggregateInput
+    _avg?: FeedbackAvgOrderByAggregateInput
     _max?: FeedbackMaxOrderByAggregateInput
     _min?: FeedbackMinOrderByAggregateInput
+    _sum?: FeedbackSumOrderByAggregateInput
   }
 
   export type FeedbackScalarWhereWithAggregatesInput = {
     AND?: FeedbackScalarWhereWithAggregatesInput | FeedbackScalarWhereWithAggregatesInput[]
     OR?: FeedbackScalarWhereWithAggregatesInput[]
     NOT?: FeedbackScalarWhereWithAggregatesInput | FeedbackScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Feedback"> | string
+    id?: IntWithAggregatesFilter<"Feedback"> | number
     message?: StringWithAggregatesFilter<"Feedback"> | string
-    userId?: StringNullableWithAggregatesFilter<"Feedback"> | string | null
+    userId?: IntNullableWithAggregatesFilter<"Feedback"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"Feedback"> | Date | string
   }
 
   export type UserCreateInput = {
-    id?: string
     name: string
     email: string
     password: string
@@ -7133,7 +7342,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedCreateInput = {
-    id?: string
+    id?: number
     name: string
     email: string
     password: string
@@ -7143,7 +7352,6 @@ export namespace Prisma {
   }
 
   export type UserUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -7153,7 +7361,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -7163,7 +7371,7 @@ export namespace Prisma {
   }
 
   export type UserCreateManyInput = {
-    id?: string
+    id?: number
     name: string
     email: string
     password: string
@@ -7171,7 +7379,6 @@ export namespace Prisma {
   }
 
   export type UserUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -7179,7 +7386,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -7187,7 +7394,6 @@ export namespace Prisma {
   }
 
   export type PollCreateInput = {
-    id?: string
     title: string
     description: string
     createdAt?: Date | string
@@ -7196,7 +7402,7 @@ export namespace Prisma {
   }
 
   export type PollUncheckedCreateInput = {
-    id?: string
+    id?: number
     title: string
     description: string
     createdAt?: Date | string
@@ -7205,7 +7411,6 @@ export namespace Prisma {
   }
 
   export type PollUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7214,7 +7419,7 @@ export namespace Prisma {
   }
 
   export type PollUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7223,7 +7428,7 @@ export namespace Prisma {
   }
 
   export type PollCreateManyInput = {
-    id?: string
+    id?: number
     title: string
     description: string
     createdAt?: Date | string
@@ -7231,7 +7436,6 @@ export namespace Prisma {
   }
 
   export type PollUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7239,7 +7443,7 @@ export namespace Prisma {
   }
 
   export type PollUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7247,143 +7451,145 @@ export namespace Prisma {
   }
 
   export type PollOptionCreateInput = {
-    id?: string
     text: string
     poll: PollCreateNestedOneWithoutOptionsInput
     votes?: VoteCreateNestedManyWithoutPollOptionInput
   }
 
   export type PollOptionUncheckedCreateInput = {
-    id?: string
+    id?: number
     text: string
-    pollId: string
+    pollId: number
     votes?: VoteUncheckedCreateNestedManyWithoutPollOptionInput
   }
 
   export type PollOptionUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
     text?: StringFieldUpdateOperationsInput | string
     poll?: PollUpdateOneRequiredWithoutOptionsNestedInput
     votes?: VoteUpdateManyWithoutPollOptionNestedInput
   }
 
   export type PollOptionUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     text?: StringFieldUpdateOperationsInput | string
-    pollId?: StringFieldUpdateOperationsInput | string
+    pollId?: IntFieldUpdateOperationsInput | number
     votes?: VoteUncheckedUpdateManyWithoutPollOptionNestedInput
   }
 
   export type PollOptionCreateManyInput = {
-    id?: string
+    id?: number
     text: string
-    pollId: string
+    pollId: number
   }
 
   export type PollOptionUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
     text?: StringFieldUpdateOperationsInput | string
   }
 
   export type PollOptionUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     text?: StringFieldUpdateOperationsInput | string
-    pollId?: StringFieldUpdateOperationsInput | string
+    pollId?: IntFieldUpdateOperationsInput | number
   }
 
   export type VoteCreateInput = {
-    id?: string
     votedAt?: Date | string
     user: UserCreateNestedOneWithoutVotesInput
     pollOption: PollOptionCreateNestedOneWithoutVotesInput
   }
 
   export type VoteUncheckedCreateInput = {
-    id?: string
-    userId: string
-    pollOptionId: string
+    id?: number
+    userId: number
+    pollOptionId: number
     votedAt?: Date | string
   }
 
   export type VoteUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
     votedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutVotesNestedInput
     pollOption?: PollOptionUpdateOneRequiredWithoutVotesNestedInput
   }
 
   export type VoteUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    pollOptionId?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    pollOptionId?: IntFieldUpdateOperationsInput | number
     votedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type VoteCreateManyInput = {
-    id?: string
-    userId: string
-    pollOptionId: string
+    id?: number
+    userId: number
+    pollOptionId: number
     votedAt?: Date | string
   }
 
   export type VoteUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
     votedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type VoteUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    pollOptionId?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    pollOptionId?: IntFieldUpdateOperationsInput | number
     votedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FeedbackCreateInput = {
-    id?: string
     message: string
     createdAt?: Date | string
     user?: UserCreateNestedOneWithoutFeedbacksInput
   }
 
   export type FeedbackUncheckedCreateInput = {
-    id?: string
+    id?: number
     message: string
-    userId?: string | null
+    userId?: number | null
     createdAt?: Date | string
   }
 
   export type FeedbackUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
     message?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneWithoutFeedbacksNestedInput
   }
 
   export type FeedbackUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     message?: StringFieldUpdateOperationsInput | string
-    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FeedbackCreateManyInput = {
-    id?: string
+    id?: number
     message: string
-    userId?: string | null
+    userId?: number | null
     createdAt?: Date | string
   }
 
   export type FeedbackUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
     message?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FeedbackUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     message?: StringFieldUpdateOperationsInput | string
-    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -7436,6 +7642,10 @@ export namespace Prisma {
     role?: SortOrder
   }
 
+  export type UserAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
   export type UserMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -7450,6 +7660,26 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     role?: SortOrder
+  }
+
+  export type UserSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -7514,6 +7744,10 @@ export namespace Prisma {
     isActive?: SortOrder
   }
 
+  export type PollAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
   export type PollMaxOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
@@ -7528,6 +7762,10 @@ export namespace Prisma {
     description?: SortOrder
     createdAt?: SortOrder
     isActive?: SortOrder
+  }
+
+  export type PollSumOrderByAggregateInput = {
+    id?: SortOrder
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -7563,6 +7801,11 @@ export namespace Prisma {
     pollId?: SortOrder
   }
 
+  export type PollOptionAvgOrderByAggregateInput = {
+    id?: SortOrder
+    pollId?: SortOrder
+  }
+
   export type PollOptionMaxOrderByAggregateInput = {
     id?: SortOrder
     text?: SortOrder
@@ -7572,6 +7815,11 @@ export namespace Prisma {
   export type PollOptionMinOrderByAggregateInput = {
     id?: SortOrder
     text?: SortOrder
+    pollId?: SortOrder
+  }
+
+  export type PollOptionSumOrderByAggregateInput = {
+    id?: SortOrder
     pollId?: SortOrder
   }
 
@@ -7592,6 +7840,12 @@ export namespace Prisma {
     votedAt?: SortOrder
   }
 
+  export type VoteAvgOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    pollOptionId?: SortOrder
+  }
+
   export type VoteMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
@@ -7606,19 +7860,21 @@ export namespace Prisma {
     votedAt?: SortOrder
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  export type VoteSumOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    pollOptionId?: SortOrder
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type UserNullableScalarRelationFilter = {
@@ -7638,6 +7894,11 @@ export namespace Prisma {
     createdAt?: SortOrder
   }
 
+  export type FeedbackAvgOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+  }
+
   export type FeedbackMaxOrderByAggregateInput = {
     id?: SortOrder
     message?: SortOrder
@@ -7652,22 +7913,25 @@ export namespace Prisma {
     createdAt?: SortOrder
   }
 
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+  export type FeedbackSumOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
     _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type VoteCreateNestedManyWithoutUserInput = {
@@ -7732,6 +7996,14 @@ export namespace Prisma {
     update?: FeedbackUpdateWithWhereUniqueWithoutUserInput | FeedbackUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: FeedbackUpdateManyWithWhereWithoutUserInput | FeedbackUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: FeedbackScalarWhereInput | FeedbackScalarWhereInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type VoteUncheckedUpdateManyWithoutUserNestedInput = {
@@ -7912,8 +8184,23 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFeedbacksInput, UserUpdateWithoutFeedbacksInput>, UserUncheckedUpdateWithoutFeedbacksInput>
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -7937,6 +8224,33 @@ export namespace Prisma {
     not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
   }
 
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -7952,17 +8266,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
-  }
-
-  export type NestedIntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedEnumRoleWithAggregatesFilter<$PrismaModel = never> = {
@@ -8013,37 +8316,6 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
   export type NestedIntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -8055,15 +8327,41 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type VoteCreateWithoutUserInput = {
-    id?: string
     votedAt?: Date | string
     pollOption: PollOptionCreateNestedOneWithoutVotesInput
   }
 
   export type VoteUncheckedCreateWithoutUserInput = {
-    id?: string
-    pollOptionId: string
+    id?: number
+    pollOptionId: number
     votedAt?: Date | string
   }
 
@@ -8078,13 +8376,12 @@ export namespace Prisma {
   }
 
   export type FeedbackCreateWithoutUserInput = {
-    id?: string
     message: string
     createdAt?: Date | string
   }
 
   export type FeedbackUncheckedCreateWithoutUserInput = {
-    id?: string
+    id?: number
     message: string
     createdAt?: Date | string
   }
@@ -8119,9 +8416,9 @@ export namespace Prisma {
     AND?: VoteScalarWhereInput | VoteScalarWhereInput[]
     OR?: VoteScalarWhereInput[]
     NOT?: VoteScalarWhereInput | VoteScalarWhereInput[]
-    id?: StringFilter<"Vote"> | string
-    userId?: StringFilter<"Vote"> | string
-    pollOptionId?: StringFilter<"Vote"> | string
+    id?: IntFilter<"Vote"> | number
+    userId?: IntFilter<"Vote"> | number
+    pollOptionId?: IntFilter<"Vote"> | number
     votedAt?: DateTimeFilter<"Vote"> | Date | string
   }
 
@@ -8145,20 +8442,19 @@ export namespace Prisma {
     AND?: FeedbackScalarWhereInput | FeedbackScalarWhereInput[]
     OR?: FeedbackScalarWhereInput[]
     NOT?: FeedbackScalarWhereInput | FeedbackScalarWhereInput[]
-    id?: StringFilter<"Feedback"> | string
+    id?: IntFilter<"Feedback"> | number
     message?: StringFilter<"Feedback"> | string
-    userId?: StringNullableFilter<"Feedback"> | string | null
+    userId?: IntNullableFilter<"Feedback"> | number | null
     createdAt?: DateTimeFilter<"Feedback"> | Date | string
   }
 
   export type PollOptionCreateWithoutPollInput = {
-    id?: string
     text: string
     votes?: VoteCreateNestedManyWithoutPollOptionInput
   }
 
   export type PollOptionUncheckedCreateWithoutPollInput = {
-    id?: string
+    id?: number
     text: string
     votes?: VoteUncheckedCreateNestedManyWithoutPollOptionInput
   }
@@ -8193,13 +8489,12 @@ export namespace Prisma {
     AND?: PollOptionScalarWhereInput | PollOptionScalarWhereInput[]
     OR?: PollOptionScalarWhereInput[]
     NOT?: PollOptionScalarWhereInput | PollOptionScalarWhereInput[]
-    id?: StringFilter<"PollOption"> | string
+    id?: IntFilter<"PollOption"> | number
     text?: StringFilter<"PollOption"> | string
-    pollId?: StringFilter<"PollOption"> | string
+    pollId?: IntFilter<"PollOption"> | number
   }
 
   export type PollCreateWithoutOptionsInput = {
-    id?: string
     title: string
     description: string
     createdAt?: Date | string
@@ -8207,7 +8502,7 @@ export namespace Prisma {
   }
 
   export type PollUncheckedCreateWithoutOptionsInput = {
-    id?: string
+    id?: number
     title: string
     description: string
     createdAt?: Date | string
@@ -8220,14 +8515,13 @@ export namespace Prisma {
   }
 
   export type VoteCreateWithoutPollOptionInput = {
-    id?: string
     votedAt?: Date | string
     user: UserCreateNestedOneWithoutVotesInput
   }
 
   export type VoteUncheckedCreateWithoutPollOptionInput = {
-    id?: string
-    userId: string
+    id?: number
+    userId: number
     votedAt?: Date | string
   }
 
@@ -8253,7 +8547,6 @@ export namespace Prisma {
   }
 
   export type PollUpdateWithoutOptionsInput = {
-    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8261,7 +8554,7 @@ export namespace Prisma {
   }
 
   export type PollUncheckedUpdateWithoutOptionsInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8285,7 +8578,6 @@ export namespace Prisma {
   }
 
   export type UserCreateWithoutVotesInput = {
-    id?: string
     name: string
     email: string
     password: string
@@ -8294,7 +8586,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedCreateWithoutVotesInput = {
-    id?: string
+    id?: number
     name: string
     email: string
     password: string
@@ -8308,15 +8600,14 @@ export namespace Prisma {
   }
 
   export type PollOptionCreateWithoutVotesInput = {
-    id?: string
     text: string
     poll: PollCreateNestedOneWithoutOptionsInput
   }
 
   export type PollOptionUncheckedCreateWithoutVotesInput = {
-    id?: string
+    id?: number
     text: string
-    pollId: string
+    pollId: number
   }
 
   export type PollOptionCreateOrConnectWithoutVotesInput = {
@@ -8336,7 +8627,6 @@ export namespace Prisma {
   }
 
   export type UserUpdateWithoutVotesInput = {
-    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -8345,7 +8635,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedUpdateWithoutVotesInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -8365,19 +8655,17 @@ export namespace Prisma {
   }
 
   export type PollOptionUpdateWithoutVotesInput = {
-    id?: StringFieldUpdateOperationsInput | string
     text?: StringFieldUpdateOperationsInput | string
     poll?: PollUpdateOneRequiredWithoutOptionsNestedInput
   }
 
   export type PollOptionUncheckedUpdateWithoutVotesInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     text?: StringFieldUpdateOperationsInput | string
-    pollId?: StringFieldUpdateOperationsInput | string
+    pollId?: IntFieldUpdateOperationsInput | number
   }
 
   export type UserCreateWithoutFeedbacksInput = {
-    id?: string
     name: string
     email: string
     password: string
@@ -8386,7 +8674,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedCreateWithoutFeedbacksInput = {
-    id?: string
+    id?: number
     name: string
     email: string
     password: string
@@ -8411,7 +8699,6 @@ export namespace Prisma {
   }
 
   export type UserUpdateWithoutFeedbacksInput = {
-    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -8420,7 +8707,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedUpdateWithoutFeedbacksInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -8429,96 +8716,92 @@ export namespace Prisma {
   }
 
   export type VoteCreateManyUserInput = {
-    id?: string
-    pollOptionId: string
+    id?: number
+    pollOptionId: number
     votedAt?: Date | string
   }
 
   export type FeedbackCreateManyUserInput = {
-    id?: string
+    id?: number
     message: string
     createdAt?: Date | string
   }
 
   export type VoteUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
     votedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     pollOption?: PollOptionUpdateOneRequiredWithoutVotesNestedInput
   }
 
   export type VoteUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    pollOptionId?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
+    pollOptionId?: IntFieldUpdateOperationsInput | number
     votedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type VoteUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    pollOptionId?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
+    pollOptionId?: IntFieldUpdateOperationsInput | number
     votedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FeedbackUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
     message?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FeedbackUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     message?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FeedbackUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     message?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PollOptionCreateManyPollInput = {
-    id?: string
+    id?: number
     text: string
   }
 
   export type PollOptionUpdateWithoutPollInput = {
-    id?: StringFieldUpdateOperationsInput | string
     text?: StringFieldUpdateOperationsInput | string
     votes?: VoteUpdateManyWithoutPollOptionNestedInput
   }
 
   export type PollOptionUncheckedUpdateWithoutPollInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     text?: StringFieldUpdateOperationsInput | string
     votes?: VoteUncheckedUpdateManyWithoutPollOptionNestedInput
   }
 
   export type PollOptionUncheckedUpdateManyWithoutPollInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     text?: StringFieldUpdateOperationsInput | string
   }
 
   export type VoteCreateManyPollOptionInput = {
-    id?: string
-    userId: string
+    id?: number
+    userId: number
     votedAt?: Date | string
   }
 
   export type VoteUpdateWithoutPollOptionInput = {
-    id?: StringFieldUpdateOperationsInput | string
     votedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutVotesNestedInput
   }
 
   export type VoteUncheckedUpdateWithoutPollOptionInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
     votedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type VoteUncheckedUpdateManyWithoutPollOptionInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
     votedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
