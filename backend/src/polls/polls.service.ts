@@ -1,26 +1,43 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreatePollDto } from './dto/create-poll.dto';
 import { UpdatePollDto } from './dto/update-poll.dto';
+import { PrismaClient } from 'generated/prisma';
 
 @Injectable()
 export class PollsService {
-  create(createPollDto: CreatePollDto) {
-    return 'This action adds a new poll';
+  constructor(private readonly prisma: PrismaClient) {}
+  async create(createPollDto: CreatePollDto) {
+    return this.prisma.poll.create({
+      data: createPollDto,
+    });
   }
 
-  findAll() {
-    return `This action returns all polls`;
+  async findAll() {
+    return this.prisma.poll.findMany();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} poll`;
+  async findOne(id: number) {
+    const poll = await this.prisma.poll.findUnique({
+      where: { id },
+    });
+    if (!poll) {
+      throw new NotFoundException('poll not found');
+    }
+    return poll;
   }
 
-  update(id: number, updatePollDto: UpdatePollDto) {
-    return `This action updates a #${id} poll`;
+  async update(id: number, updatePollDto: UpdatePollDto) {
+    await this.findOne(id);
+    return this.prisma.poll.update({
+      where: { id },
+      data: updatePollDto,
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} poll`;
+  async remove(id: number) {
+    await this.findOne(id);
+    return this.prisma.poll.delete({
+      where: { id },
+    });
   }
 }
