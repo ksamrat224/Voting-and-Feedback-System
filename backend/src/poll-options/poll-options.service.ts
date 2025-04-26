@@ -34,7 +34,10 @@ export class PollOptionsService {
     });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} pollOption`;
+ async remove(id: number) {
+    await this.findOne(id);
+    return this.prisma.pollOption.delete({
+      where: { id },
+    });
   }
 }
