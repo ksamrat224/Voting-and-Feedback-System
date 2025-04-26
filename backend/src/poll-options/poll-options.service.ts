@@ -26,8 +26,12 @@ export class PollOptionsService {
     return pollOption;
   }
 
-  update(id: number, updatePollOptionDto: UpdatePollOptionDto) {
-    return `This action updates a #${id} pollOption`;
+  async update(id: number, updatePollOptionDto: UpdatePollOptionDto) {
+    await this.findOne(id);
+    return this.prisma.pollOption.update({
+      where: { id },
+      data: updatePollOptionDto,
+    });
   }
 
   remove(id: number) {
