@@ -1,12 +1,18 @@
 import { Injectable } from '@nestjs/common';
 import { CreateVoteDto } from './dto/create-vote.dto';
 import { UpdateVoteDto } from './dto/update-vote.dto';
+import { PrismaClient } from 'generated/prisma';
 
 @Injectable()
 export class VotesService {
-  create(createVoteDto: CreateVoteDto) {
-    return 'This action adds a new vote';
+  constructor(private readonly prisma: PrismaClient) {}
+
+  async create(createVoteDto: CreateVoteDto) {
+    return this.prisma.vote.create({
+      data: createVoteDto,
+    });
   }
+  
 
   findAll() {
     return `This action returns all votes`;
