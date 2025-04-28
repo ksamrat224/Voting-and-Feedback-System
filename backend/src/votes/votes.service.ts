@@ -35,7 +35,10 @@ export class VotesService {
     });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} vote`;
+  async remove(id: number) {
+    await this.findOne(id);
+    return this.prisma.vote.delete({
+      where: { id },
+    });
   }
 }
