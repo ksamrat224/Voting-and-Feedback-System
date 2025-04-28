@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateVoteDto } from './dto/create-vote.dto';
 import { UpdateVoteDto } from './dto/update-vote.dto';
 import { PrismaClient } from 'generated/prisma';
@@ -14,11 +14,17 @@ export class VotesService {
   }
 
   async findAll() {
-    return this.prisma.vote.findMany();;
+    return this.prisma.vote.findMany();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} vote`;
+  async findOne(id: number) {
+    const vote = await this.prisma.vote.findUnique({
+      where: { id },
+    });
+    if (!vote) {
+      throw new NotFoundException('vote not found');
+    }
+    return vote;
   }
 
   update(id: number, updateVoteDto: UpdateVoteDto) {
