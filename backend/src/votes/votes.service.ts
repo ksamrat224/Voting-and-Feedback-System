@@ -27,8 +27,12 @@ export class VotesService {
     return vote;
   }
 
-  update(id: number, updateVoteDto: UpdateVoteDto) {
-    return `This action updates a #${id} vote`;
+  async update(id: number, updateVoteDto: UpdateVoteDto) {
+    await this.findOne(id);
+    return this.prisma.vote.update({
+      where: { id },
+      data: updateVoteDto,
+    });
   }
 
   remove(id: number) {
