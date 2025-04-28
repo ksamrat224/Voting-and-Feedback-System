@@ -12,10 +12,9 @@ export class VotesService {
       data: createVoteDto,
     });
   }
-  
 
-  findAll() {
-    return `This action returns all votes`;
+  async findAll() {
+    return this.prisma.vote.findMany();;
   }
 
   findOne(id: number) {
