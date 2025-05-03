@@ -5,7 +5,4 @@ export class CreateFeedbackDto {
   @IsNotEmpty()
   message:string;
 
-  @IsInt()
-  @IsOptional()
-  userId?: string;
 }

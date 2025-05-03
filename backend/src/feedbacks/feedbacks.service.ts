@@ -1,11 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { CreateFeedbackDto } from './dto/create-feedback.dto';
 import { UpdateFeedbackDto } from './dto/update-feedback.dto';
+import { PrismaClient } from 'generated/prisma';
 
 @Injectable()
 export class FeedbacksService {
-  create(createFeedbackDto: CreateFeedbackDto) {
-    return 'This action adds a new feedback';
+  constructor(private readonly prisma: PrismaClient) {}
+
+  async create(createFeedbackDto: CreateFeedbackDto) {
+    return this.prisma.feedback.create({
+      data: createFeedbackDto,
+    });
   }
 
   findAll() {
