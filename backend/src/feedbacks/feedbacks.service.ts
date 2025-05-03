@@ -27,9 +27,13 @@ export class FeedbacksService {
     return feedback;
 }
 
-  update(id: number, updateFeedbackDto: UpdateFeedbackDto) {
-    return `This action updates a #${id} feedback`;
-  }
+ async update(id: number, updateFeedbackDto: UpdateFeedbackDto) {
+    await this.findOne(id);
+    return this.prisma.feedback.update({
+      where: { id },
+      data: updateFeedbackDto,
+    });
+}
 
   remove(id: number) {
     return `This action removes a #${id} feedback`;
