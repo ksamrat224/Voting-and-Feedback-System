@@ -17,25 +17,28 @@ export class FeedbacksService {
     return this.prisma.feedback.findMany();
   }
 
- async findOne(id: number) {
- const feedback = await this.prisma.feedback.findUnique({
+  async findOne(id: number) {
+    const feedback = await this.prisma.feedback.findUnique({
       where: { id },
     });
     if (!feedback) {
       throw new NotFoundException('Feedback not found');
     }
     return feedback;
-}
+  }
 
- async update(id: number, updateFeedbackDto: UpdateFeedbackDto) {
+  async update(id: number, updateFeedbackDto: UpdateFeedbackDto) {
     await this.findOne(id);
     return this.prisma.feedback.update({
       where: { id },
       data: updateFeedbackDto,
     });
-}
+  }
 
-  remove(id: number) {
-    return `This action removes a #${id} feedback`;
+  async remove(id: number) {
+    await this.findOne(id);
+    return this.prisma.feedback.delete({
+      where: { id },
+    });
   }
 }
