@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateFeedbackDto } from './dto/create-feedback.dto';
 import { UpdateFeedbackDto } from './dto/update-feedback.dto';
 import { PrismaClient } from 'generated/prisma';
@@ -13,13 +13,19 @@ export class FeedbacksService {
     });
   }
 
-  findAll() {
-    return `This action returns all feedbacks`;
+  async findAll() {
+    return this.prisma.feedback.findMany();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} feedback`;
-  }
+ async findOne(id: number) {
+ const feedback = await this.prisma.feedback.findUnique({
+      where: { id },
+    });
+    if (!feedback) {
+      throw new NotFoundException('Feedback not found');
+    }
+    return feedback;
+}
 
   update(id: number, updateFeedbackDto: UpdateFeedbackDto) {
     return `This action updates a #${id} feedback`;
